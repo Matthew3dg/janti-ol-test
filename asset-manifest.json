@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/janti-ol-test/static/css/main.ce5dae19.css",
+    "main.js": "/janti-ol-test/static/js/main.3abac519.js",
+    "index.html": "/janti-ol-test/index.html",
+    "main.ce5dae19.css.map": "/janti-ol-test/static/css/main.ce5dae19.css.map",
+    "main.3abac519.js.map": "/janti-ol-test/static/js/main.3abac519.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ce5dae19.css",
+    "static/js/main.3abac519.js"
+  ]
+}
