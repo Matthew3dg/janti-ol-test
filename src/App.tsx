@@ -17,6 +17,9 @@ function App() {
   const [routeDetails, setRouteDetails] = useState<IRouteDetails[]>([{} as IRouteDetails]);
   const [features, setFeatures] = useState<Feature<Point>[]>([]);
 
+  const [center, setCenter] = useState<[number, number]>([76, 66]);
+  const [zoom, setZoom] = useState(3);
+
   const createMarkersFromDetails = (details: IRouteDetails[]): [number, number][] => {
     if (details.length > 0) {
       return details.map((item) => {
@@ -42,7 +45,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setFeatures(addMarkers(createMarkersFromDetails(routeDetails), currentRoute.color));
+    const marks = createMarkersFromDetails(routeDetails);
+    setFeatures(addMarkers(marks, currentRoute.color));
+    if (marks && marks[1]) {
+      setCenter(marks[1]);
+      setZoom(8);
+    } else setZoom(3);
   }, [routeDetails]);
 
   function addMarkers(lonLatArray: [number, number][], color: string) {
@@ -66,7 +74,7 @@ function App() {
 
   return (
     <div>
-      <Map center={fromLonLat([76, 66])} zoom={3}>
+      <Map center={fromLonLat(center)} zoom={zoom}>
         <Layers>
           <TileLayer source={osm()} zIndex={0} />
           {true && <VectorLayer source={vector({ features })} />}
