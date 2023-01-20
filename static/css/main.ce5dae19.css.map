@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.ce5dae19.css","mappings":"AAAA,8BACE,WACF","sources":["components/MapView/MapView.module.css"],"sourcesContent":[".mapContainer {\r\n  height: 70vh;\r\n}\r\n"],"names":[],"sourceRoot":""}
