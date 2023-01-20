@@ -77,7 +77,7 @@ function App() {
       <Map center={fromLonLat(center)} zoom={zoom}>
         <Layers>
           <TileLayer source={osm()} zIndex={0} />
-          {true && <VectorLayer source={vector({ features })} />}
+          <VectorLayer source={vector({ features })} />
         </Layers>
       </Map>
 
