@@ -4,7 +4,7 @@ export interface IRoute {
   color: string;
 }
 export interface IRouteDetails {
-  time: Date;
+  time: number;
   lon: number;
   lat: number;
   course: number;

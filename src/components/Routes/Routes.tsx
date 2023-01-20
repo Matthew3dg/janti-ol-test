@@ -5,14 +5,13 @@ import { IRoute, IRouteDetails } from '../../types/types';
 interface Props {
   routes: IRoute[];
   setRouteDetails: (details: IRouteDetails[]) => void;
+  setCurrentRoute: (route: IRoute) => void;
 }
 
-const Routes: React.FC<Props> = ({ routes, setRouteDetails }) => {
-  const onRouteClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    fetchRouteDetails(Number(e.target.id));
-
-    console.log('e.target.id');
-    console.log(e.target.id);
+const Routes: React.FC<Props> = ({ routes, setRouteDetails, setCurrentRoute }) => {
+  const onRouteClick = (currentRoute: IRoute) => {
+    fetchRouteDetails(currentRoute.id);
+    setCurrentRoute(currentRoute);
   };
 
   const fetchRouteDetails = async (selectedRouteId: number) => {
@@ -32,7 +31,7 @@ const Routes: React.FC<Props> = ({ routes, setRouteDetails }) => {
         return (
           <div style={{ color: route.color }} key={route.id}>
             <input
-              onChange={(e) => onRouteClick(e)}
+              onChange={() => onRouteClick(route)}
               type="radio"
               name="routes"
               id={route.id.toString()}
