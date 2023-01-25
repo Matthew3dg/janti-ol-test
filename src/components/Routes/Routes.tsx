@@ -22,7 +22,7 @@ const Routes: React.FC<Props> = ({ routes, setRouteDetails, setCurrentRoute }) =
     }
 
     const filteredRoutes = routes.filter((item) => {
-      return item.name.trim().toLowerCase().startsWith(searchString.trim().toLowerCase());
+      return item.name.trim().toLowerCase().includes(searchString.trim().toLowerCase());
     });
 
     return filteredRoutes;
