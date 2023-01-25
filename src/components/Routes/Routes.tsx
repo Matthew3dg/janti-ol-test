@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { IRoute, IRouteDetails } from '../../types/types';
 
 interface Props {
@@ -12,6 +12,20 @@ const Routes: React.FC<Props> = ({ routes, setRouteDetails, setCurrentRoute }) =
   const onRouteClick = (currentRoute: IRoute) => {
     fetchRouteDetails(currentRoute.id);
     setCurrentRoute(currentRoute);
+  };
+
+  const [searchString, setSearchString] = useState<string>('');
+
+  const filterRoutes = (routes: IRoute[], searchString: string): IRoute[] => {
+    if (searchString === '') {
+      return routes;
+    }
+
+    const filteredRoutes = routes.filter((item) => {
+      return item.name.toLowerCase().startsWith(searchString.toLowerCase());
+    });
+
+    return filteredRoutes;
   };
 
   const fetchRouteDetails = async (selectedRouteId: number) => {
@@ -27,7 +41,16 @@ const Routes: React.FC<Props> = ({ routes, setRouteDetails, setCurrentRoute }) =
 
   return (
     <div>
-      {routes.map((route) => {
+      <label htmlFor="search">Поиск </label>
+      <input
+        onChange={(e) => {
+          setSearchString(e.target.value);
+        }}
+        type="text"
+        placeholder="Поиск"
+        id="search"
+      />
+      {filterRoutes(routes, searchString).map((route) => {
         return (
           <div style={{ color: route.color }} key={route.id}>
             <input
