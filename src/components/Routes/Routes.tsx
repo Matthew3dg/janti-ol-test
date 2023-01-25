@@ -17,12 +17,12 @@ const Routes: React.FC<Props> = ({ routes, setRouteDetails, setCurrentRoute }) =
   const [searchString, setSearchString] = useState<string>('');
 
   const filterRoutes = (routes: IRoute[], searchString: string): IRoute[] => {
-    if (searchString === '') {
+    if (searchString.trim() === '') {
       return routes;
     }
 
     const filteredRoutes = routes.filter((item) => {
-      return item.name.toLowerCase().startsWith(searchString.toLowerCase());
+      return item.name.trim().toLowerCase().startsWith(searchString.trim().toLowerCase());
     });
 
     return filteredRoutes;
