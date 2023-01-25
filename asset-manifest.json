@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/janti-ol-test/static/css/main.defe3d39.css",
-    "main.js": "/janti-ol-test/static/js/main.ccf8f6e9.js",
+    "main.css": "/janti-ol-test/static/css/main.1a2706de.css",
+    "main.js": "/janti-ol-test/static/js/main.b0a2e364.js",
     "index.html": "/janti-ol-test/index.html",
-    "main.defe3d39.css.map": "/janti-ol-test/static/css/main.defe3d39.css.map",
-    "main.ccf8f6e9.js.map": "/janti-ol-test/static/js/main.ccf8f6e9.js.map"
+    "main.1a2706de.css.map": "/janti-ol-test/static/css/main.1a2706de.css.map",
+    "main.b0a2e364.js.map": "/janti-ol-test/static/js/main.b0a2e364.js.map"
   },
   "entrypoints": [
-    "static/css/main.defe3d39.css",
-    "static/js/main.ccf8f6e9.js"
+    "static/css/main.1a2706de.css",
+    "static/js/main.b0a2e364.js"
   ]
 }
