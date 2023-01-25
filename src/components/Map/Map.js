@@ -1,21 +1,31 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './Map.css';
+import '../../../node_modules/ol/ol.css';
+
 import MapContext from './MapContext';
 import * as ol from 'ol';
+import { ZoomSlider, Zoom, FullScreen } from 'ol/control.js';
 
 const Map = ({ children, zoom, center }) => {
   const mapRef = useRef();
   const [map, setMap] = useState(null);
 
   useEffect(() => {
-    let options = {
+    const options = {
       view: new ol.View({ zoom, center }),
       layers: [],
       controls: [],
       overlays: [],
     };
 
-    let mapObject = new ol.Map(options);
+    const mapObject = new ol.Map(options);
+    const zoomsliderControl = new ZoomSlider();
+    const zoomControl = new Zoom();
+    const fullScreenControl = new FullScreen();
+    mapObject.addControl(zoomsliderControl);
+    mapObject.addControl(zoomControl);
+    mapObject.addControl(fullScreenControl);
+
     mapObject.setTarget(mapRef.current);
     setMap(mapObject);
 
