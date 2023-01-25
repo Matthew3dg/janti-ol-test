@@ -8,7 +8,7 @@ const VectorLayer = ({ source }) => {
   useEffect(() => {
     if (!map) return;
 
-    let vectorLayer = new OLVectorLayer({
+    const vectorLayer = new OLVectorLayer({
       source,
       zIndex: 0,
     });
